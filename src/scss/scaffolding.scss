@@ -10,10 +10,11 @@ html {
 
 
 body {
+    margin: 0;
     font-size: $font-size;
     font-family: $font-family;
     font-weight: 400;
-    color: $text-color;
+    color: $color-text;
 }
 
 .visuallyhidden {
@@ -82,7 +83,7 @@ h6 {
 
 // Обертки и flex container 
 
-.wrap {
+.wrapper {
     @include container-fluid;    
 }
 

@@ -1,2 +1,5 @@
-//--DEV Для шаблонизации использован Jade
-section.slider Content
+section.slider.wrapper
+    .slider__wrapper        
+        -var slideLength = 7;
+        -for(var i = 1; i<slideLength; i++)
+            img.slider__item(src='image/slider/slide-' + i + '.jpg' width="" height="")        

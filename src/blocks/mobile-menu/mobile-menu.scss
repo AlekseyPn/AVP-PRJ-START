@@ -1,7 +1,74 @@
-// В этом файле должны быть стили только для БЭМ-блока mobile-menu, его элементов, 
-// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
-// Не пишите здесь другие селекторы.
-
 .mobile-menu {
-  
+  float: right;
+  width: 30px;
+  height: 12px;
+  padding: 11px 0;
+  font-size: 0;  
+  box-sizing: content-box;
+  z-index: 2;
+}
+
+.mobile-menu__line {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 4px;
+    vertical-align: bottom;
+    background-color: $black;
+    z-index: 2;
+    transition: background .3s .5s;
+    &:hover,
+    &:focus {
+      background-color: $color-hover;
+    }    
+    &::before,
+    &::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $black;      
+      transform-origin: 50% 50%;
+      transition: top .3s .3s,transform .3s;
+      transition: top .3s .3s,transform .3s;
+      &:hover,
+      &:focus {
+        background-color: $color-hover;
+      } 
+    }
+  &::before {
+    top: 10px;
+  }
+  &::after {
+    top: -10px;
+  }
+}
+
+.mobile-menu--show .mobile-menu__line {
+  width: 28px;  
+  background: 0 0;
+  transition: background 0s linear;
+}
+
+.mobile-menu--show .mobile-menu__line::before,
+.mobile-menu--show .mobile-menu__line::after {
+  width: 28px;
+  top: 0;
+  left: 0;
+  transition: top .3s,transform .3s .5s;
+}
+
+.mobile-menu--show .mobile-menu__line::before { 
+  transform: rotate3d(0,0,1,45deg);
+}
+
+.mobile-menu--show .mobile-menu__line::after {  
+  transform: rotate3d(0,0,1,-45deg);
+}
+
+@media (min-width: $screen-md) {
+  .mobile-menu {
+    display: none;
+  }
 }
