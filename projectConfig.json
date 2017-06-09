@@ -1,0 +1,40 @@
+{
+  "blocks": {
+    "logo": [],
+    "page-header": [],
+    "page-footer": [],
+    "page-main": [],
+    "main-nav": [],
+    "mobile-menu": [],
+    "slider": [],
+    "social": []   
+  },
+  "addJsBefore": [
+    "./node_modules/jquery/dist/jquery.js",
+    "./node_modules/jquery-migrate/dist/jquery-migrate.min.js",
+    "./node_modules/input-mask/input-mask.js",
+    "./node_modules/slick-carousel/slick/slick.js"
+  ],  
+  "addCssBefore": [
+    "./src/scss/variables.scss",
+    "./src/scss/mixins.scss",
+    "./src/scss/functions.scss",
+    "./src/scss/scaffolding.scss"
+  ],
+  "addCssAfter": [],
+  "animateCss": [],
+  "wowJS": [],  
+  "addJsAfter": [
+    "./src/global/global.js"
+  ],
+  "addImg": [
+    "./src/img/*{jpg,jpeg,png,svg,ico}"
+  ],
+  "copiedCss": [],
+  "copiedJs": [],
+  "dirs": {
+    "source": "./src/",
+    "build": "./build/",
+    "blocksName": "blocks"
+  }
+}

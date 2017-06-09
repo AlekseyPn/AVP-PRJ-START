@@ -1,0 +1,50 @@
+@mixin container {
+  width: 320px;
+  margin: 0 auto;
+
+  @media (min-width: $screen-md) {
+    width: 768px;
+  }
+  @media (min-width: $screen-xl) {
+    width: $container-width;
+  }
+}
+// ===========Для резины=============
+@mixin container-fluid {
+  width: auto;
+
+  @media (min-width: $screen-md) {
+    width: 90%;
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+}
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin container-static($width) {
+  width: $width;
+  @include center-block;
+}
+
+@mixin clearfix {
+  &::after {
+  content: "";
+    
+  display: table;
+  clear: both;
+  }
+}
+
+// Примесь для шрифта
+
+@mixin font($fontName, $urlName: $fontName, $weight: normal, $style: normal) {
+  font-family: '#{$fontName}';  
+  src: url('/fonts/#{$urlName}/@{$urlName}.woff') format('woff'),url('/fonts/#{$urlName}/#{$urlName}.woff') format('woff');    
+    font-weight: $weight;
+    font-style: $style;
+}

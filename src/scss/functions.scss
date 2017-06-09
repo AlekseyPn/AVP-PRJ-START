@@ -1,0 +1,37 @@
+// Цикл для сетки в процентах мобильная, десктопная и планшетная;
+$amount: 12; //количество циклов
+$item-width: 100%; //ширина по умолчанию
+$grid-gutter: ceil(20px / $container-width);
+$i: 1;
+@media (min-width: $screen-sm) {
+    @for $i from $i through $amount {
+        .grid__xs-#{$i} {
+            @if $i = 12 {width: $i * ($item-width / $amount)}
+            width: ($i * ($item-width / $amount)) - $grid-gutter;
+        }
+    }
+}
+
+@media (min-width: $screen-md) {
+    @for $i from $i through $amount {
+        .grid__md-#{$i} {
+            @if $i = 12 {width: $i * ($item-width / $amount)}
+            width: ($i * ($item-width / $amount)) - $grid-gutter;
+        }
+    }
+}
+
+@media (min-width: $screen-lg) {
+    @for $i from $i through $amount {
+        .grid__lg-#{$i} {
+            @if $i = 12 {width: $i * ($item-width / $amount)}
+            width: ($i * ($item-width / $amount)) - $grid-gutter;
+        }
+    }
+}
+
+// Заметки при переходе на SCSS
+
+// В SCSS есть массивы для значений для удобной компиляции стилей каких либо состояний полей, кнопок, и т.д
+// $map: (key: val, key2:val2)
+
