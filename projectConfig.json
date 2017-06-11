@@ -21,7 +21,8 @@
     "./src/scss/variables.scss",
     "./src/scss/mixins.scss",
     "./src/scss/functions.scss",
-    "./src/scss/scaffolding.scss"
+    "./src/scss/scaffolding.scss",
+    "./src/scss/normalize.scss",
   ],
   "addCssAfter": [],
   "animateCss": [],
