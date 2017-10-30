@@ -10,16 +10,19 @@ $gray-lighten:                hsl(0, 0%, 70%);
 $gray-lighter:                hsl(0, 0%, 80%); 
 $gray-lightest:               hsl(0, 0%, 90%); 
 $white:                       hsl(0, 0%, 100%);
+$alert-succes:                #dff0d8;
+$alert-attention:             #d9edf7;
+$alert-warning :              #fcf8e3;
+$alert-error :                #f2dede;
+$link-color :                 #0275d8;
+
 
 $color-main:                #dfdfdf;
 $color-second:              #d2d2d2;
 $color-hover:               #fff;
-$color-text:                  $black;
+$color-text:                  $gray-darken;
 
-$link-color:                  $black;
-$link-color--hover:           $gray-darken;
-
-$border-color:                $gray;
+$border-color:                $gray-dark;
 // Типографика
 $font-size:                   1.6rem;
 $font-size--h1:               3.6rem;
@@ -55,7 +58,7 @@ $container-xl:                $screen-xl - 30;
 $container-xxl:               $screen-xxl - 30;
 
 //Поля форм и кнопок
-$button-color:                #123456;
+$button-color:                $alert-attention;
 $field-padding-top:           1rem;
 $field-padding-bottom:        1.1rem;
 $field-padding-horizontal:    1.5rem;

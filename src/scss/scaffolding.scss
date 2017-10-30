@@ -17,7 +17,7 @@ body {
     color: $color-text;
 }
 
-.visuallyhidden {
+.visually-hidden {
     position: absolute; 
     overflow: hidden; 
     clip: rect(0 0 0 0); 
@@ -84,16 +84,15 @@ h6 {
 // Обертки и flex container 
 
 .wrapper {
-    @include container-fluid;    
+    @include wrapper;    
 }
 
-.flex-wrap {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;    
-    &--col {
-        flex-direction: column;        
-    }
+.container {
+    @include container-fluid
+}
+
+.flex-container {
+    @include flex-container   
 }
 
 
