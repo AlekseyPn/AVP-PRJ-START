@@ -38,8 +38,7 @@ a {
     background-color: transparent;
 
     &:hover,
-    &:active {
-        color: $link-color--hover;
+    &:active {    
         text-decoration: underline;
     }
 }
@@ -82,11 +81,6 @@ h6 {
 }
 
 // Обертки и flex container 
-
-.wrapper {
-    @include wrapper;    
-}
-
 .container {
     @include container-fluid
 }

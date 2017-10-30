@@ -168,9 +168,10 @@ gulp.task('copy:fonts', function () {
 });
 
 let spriteSvgPath = dirs.source + dirs.blocksName + '/sprite-svg/svg';
+let spriteSvgBuildPath = dirs.source + dirs.blocksName + '/sprite-svg/img';
 // Сборка SVG Спрайта
 gulp.task('sprite:svg', function (callback) {
-    if ((projectConfig.blocks['sprite-svg']) !== undefined) {
+    if ((projectConfig.blocks['sprite-svg']) !== void(0)) {
         const svgstore = require('gulp-svgstore');
         const svgmin = require('gulp-svgmin');
         const cheerio = require('gulp-cheerio');
@@ -198,7 +199,7 @@ gulp.task('sprite:svg', function (callback) {
                     showFiles: true,
                     showTotal: false
                 }))
-                .pipe(gulp.dest(dirs.source + dirs.blocksName + '/sprite-svg/img/'))
+                .pipe(gulp.dest(spriteSvgBuildPath))
         } else {
             console.log('Отмена ---> Нет папки с картинками!')
             callback()
@@ -210,9 +211,10 @@ gulp.task('sprite:svg', function (callback) {
 });
 
 let spritePngPath = dirs.source + dirs.blocksName + '/sprite-png/png';
+let spriteBuildPngPath = dirs.source + dirs.blocksName + '/sprite-png/img';
 //Сборка PNG Спрайта
 gulp.task('sprite:png', function (callback) {
-    if ((projectConfig.blocks['sprite-png']) !== undefined) {
+    if ((projectConfig.blocks['sprite-png']) !== void(0)) {
         const spritesmith = require('gulp.spritesmith');
         const buffer = require('vinyl-buffer');
         const merge = require('merge-stream');
@@ -220,7 +222,8 @@ gulp.task('sprite:png', function (callback) {
         const pngquant = require('imagemin-pngquant');        
         if (fileExist(spritePngPath) !== false) {
             console.log('Сборка PNG Спрайта')
-            del(dirs.source + dirs.blockName + 'sprite-png/img/*.png');
+            debugger
+            del([dirs.source + dirs.blockName + 'sprite-png/img/*']);
             let fileName = 'sprite-' + Math.random().toString().replace(/[^0-9]/g, '') + '.png';                     
             let spriteData = gulp.src(spritePngPath + '/*.png')
                 .pipe(spritesmith({
@@ -234,7 +237,7 @@ gulp.task('sprite:png', function (callback) {
                 .pipe(imagemin({
                     use: [pngquant()]
                 }))
-                .pipe(gulp.dest(dirs.source + dirs.blocksName + '/sprite-png/img/'));
+                .pipe(gulp.dest(spriteBuildPngPath));
             let cssStream = spriteData.css
                 .pipe(gulp.dest(dirs.source + dirs.blocksName + '/sprite-png/'));
             return merge(imgStream, cssStream);
@@ -378,11 +381,11 @@ gulp.task('server', ['build'], function() {
         gulp.watch(lists.js, ['watch:js']);
     };
 
-    if (projectConfig.blocks['sprite-svg'] !== undefined) {
+    if (projectConfig.blocks['sprite-svg'] !== void(0)) {
         gulp.watch('*.svg', {cwd: spriteSvgPath}, ['watch:sprite:svg']);
     };
 
-    if (projectConfig.blocks['sprite-png'] !== undefined) {
+    if (projectConfig.blocks['sprite-png'] !== void(0)) {
         gulp.watch('*.png', {cwd: spritePngPath}, ['watch:sprite:png']);
     };
 });
@@ -394,12 +397,6 @@ gulp.task('watch:jade', ['jade'], reload);
 gulp.task('watch:js', ['js'], reload);
 gulp.task('watch:sprite:svg', ['sprite:svg'], reload);
 gulp.task('watch:sprite:png', ['sprite:png'], reload);
-
-
-
-
-// Магия от Николая Громова https://github.com/nicothin/NTH-start-project/blob/master/gulpfile.js
-// Вдохновение и идеи брались из его репозитория!
 
 function getFilesList(config) {
 

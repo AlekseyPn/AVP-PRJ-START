@@ -22,7 +22,7 @@
     "./src/scss/mixins.scss",
     "./src/scss/functions.scss",
     "./src/scss/scaffolding.scss",
-    "./src/scss/normalize.scss",
+    "./src/scss/normalize.scss"
   ],
   "addCssAfter": [],
   "animateCss": [],
